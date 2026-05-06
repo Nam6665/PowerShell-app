@@ -38,25 +38,25 @@ html, body {
 }
 
 .topnav-links a {
-    color: #c9d1d9;
+    color: #1e0c2f;
     text-decoration: none;
     padding: 0.35rem 0.85rem;
     border-radius: 6px;
     font-size: 0.95rem;
+    font-weight: 500;
     transition: background 0.15s, color 0.15s;
 }
 
 .topnav-links a:hover {
-    background-color: #21262d;
-    color: #fff;
+    background-color: #bbb9f5;
+    color: #1e0c2f;
 }
 
 .topnav-links a.active {
-    background-color: #1f6feb;
+    background-color: #7c6fcd;
     color: #fff;
 }
 
-/* ── Main content ── */
 .main-content {
     max-width: 960px;
     margin: 2rem auto;
