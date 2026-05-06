@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PowerShell-app/PowerShell-app.Client/PowerShell-app.Client.csproj" />
+  <Project Path="PowerShell-app/PowerShell-app/PowerShell-app.csproj" />
+</Solution>

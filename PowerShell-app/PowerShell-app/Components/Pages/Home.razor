@@ -1,0 +1,45 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using PowerShell_app.Services
+@inject PowerShellService PS
+
+<PageTitle>Home</PageTitle>
+
+<h1>Ping a website!</h1>
+
+<input @bind="url" placeholder="Enter URL" />
+<button @onclick="RunPing">Ping</button>
+<button @onclick="DnsLookUp">Dns-Lookup</button>
+
+@if (validationError)
+{
+    <p class="validation-message">⚠️ Please enter a valid URL.</p>
+}
+
+<p>Ping:</p>
+<pre class="outputbox">@outputping</pre>
+<p>DNS-Lookup:</p>
+<pre class="outputbox">@outputdns</pre>
+
+@code {
+    string url = string.Empty;
+    string outputping = string.Empty;
+    string outputdns = string.Empty;
+    bool validationError = false;
+
+    bool IsValidUrl() => !string.IsNullOrWhiteSpace(url);
+
+    async Task RunPing()
+    {
+        if (!IsValidUrl()) { validationError = true; return; }
+        validationError = false;
+        outputping = await PS.RunPing(url);
+    }
+
+    async Task DnsLookUp()
+    {
+        if (!IsValidUrl()) { validationError = true; return; }
+        validationError = false;
+        outputdns = await PS.DnsLookUp(url);
+    }
+}
